@@ -10,6 +10,7 @@ print(newNumber)
 # Revision 1 2/2/2022
 ## Mina Stanton
 
+
 # Revision 2 2/3/2022
 ## Mina Stanton 2/3/2022
 
@@ -64,7 +65,9 @@ while numberOfChestItems > 0:
 print("The treasure chest is filled with: \n", treasureChest)
 bank = 50.00
 while bank > 0:
-    wager = random.randint(1,50)
+    wager = random.randint(1,50) # randomly selects wager value
+    while wager > bank:
+        wager = random.randint(1,50) # randomly selects wager again if wager si greater than bank
     print("Your wager is: ", wager)
     bank -= wager
     print("You have $%.2f" %bank + " left in the bank for your next wager and spin!")
@@ -72,3 +75,38 @@ print("You have nothing left in the bank! Thanks for playing!")
 
 # Revision 2: 2/3/2022
 # Mina Stanton
+
+# Revision 3: 2/4/2022
+# Mina Stanton
+
+# Issue 6: password simulator
+import  random
+
+acceptablePasswords = []
+dictionaryList = []
+# open file with list of passwords alredy in use
+with open('rockYouPartialList.txt', 'r') as f:
+    dictionaryList = f.readlines()
+
+specialSymbols = ["!", "@", "#" , "$", "%", "^", "&", "*", ".", "?"]
+characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&&*.?"
+count = 1
+while count < 45:
+    randomCharacters = [random.choice(characterList) for i in range(3,9)] # get up to 9 random characters
+    randomPassword = "".join(randomCharacters) # creates a string out of the cahracters
+    print(str(count) + ": Random Password Generated: " + randomPassword)
+
+    if any(char in randomPassword for char in specialSymbols): #if the random password contains a special symbol
+        if not any(randomPassword for randomPassword in dictionaryList): #check if the password is already in the dictionay
+             print(randomPassword + " is unaccepted")
+        else: # if not in dictionary but has a special character then password is accepted
+            print(randomPassword + " is accepted and will be archived")
+            acceptablePasswords.append(randomPassword)
+    else:
+        print(randomPassword + " is unaccepted")
+    count+=1
+    print()
+
+# Revision 3 2/4/2022
+# Mina Stanton
+
