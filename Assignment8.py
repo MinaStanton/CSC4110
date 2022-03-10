@@ -25,7 +25,7 @@ def madlib():
     adverb = input('Enter an adverb: ')
     food = input('Enter food name: ')
     things = input('Enter thing name: ')
-    print("\n\nLast night I dreamed I was a " + adjective + " unicorn with " + color + " spots that looked like " + thing + "! I flew into space with " + person + " who is a " + verb + " that was always eating " + food + " we went to " + place + " and had second breakfast which was " + foods + " that tasted like " + adverb + " " + things)
+    print("\n\nLast night I dreamed I was a " + adjective + " unicorn with " + color + " spots that looked like a " + thing + "! I flew into space with " + person + " who is a " + verb + " that was always eating " + food + " we went to " + place + " and had second breakfast which was " + foods + " that tasted like " + adverb + " " + things)
 
 # random polygon
 def RandomPolygon():
